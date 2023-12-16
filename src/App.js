@@ -1,8 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
-import Navbar from './Navbar.js';
-import UploadSuccess from './UploadSuccess.js';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Navbar from './component/Navbar.js';
+import UploadSuccess from './component/UploadSuccess.js';
+import UploadImage from './component/UploadImage.js';
+
 
 function App() {
 
@@ -41,11 +45,19 @@ function App() {
   }
   return (
     <div className="container">
-      <Navbar onconnectWallet={getWalletAddress} walletAddress={walletAddress} />
       <p>Your Address: {walletAddress}</p>
-      <UploadSuccess/>
+      <Router>
+
+        <Navbar onconnectWallet={getWalletAddress} walletAddress={walletAddress} />
+        <Routes>
+          <Route path="/" exact element={<UploadImage address={walletAddress} />} />
+          <Route path="/success" element={<UploadSuccess />} />
+        </Routes>
+
+      </Router>
     </div>
   );
 }
+
 
 export default App;
