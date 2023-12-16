@@ -45,15 +45,16 @@ function App() {
   }
   return (
     <div className="container">
-      <p>Your Address: {walletAddress}</p>
+
       <Router>
 
         <Navbar onconnectWallet={getWalletAddress} walletAddress={walletAddress} />
+
         <Routes>
           <Route path="/" exact element={<UploadImage address={walletAddress} />} />
           <Route path="/success" element={<UploadSuccess />} />
         </Routes>
-
+        <p>Your Address: {walletAddress}</p>
       </Router>
     </div>
   );
