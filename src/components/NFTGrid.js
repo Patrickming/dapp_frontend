@@ -15,10 +15,10 @@ const NFTGrid = () => {
 
   useEffect(() => {
     const fetchNFTs = async () => {
-      const length = await balanceOf("0x9E545E3C0baAB3E08CdfD552C960A1050f373042");
+      const length = await balanceOf("0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9");
       console.log('length', length)
       for (let i = 0; i < length; i++) {
-        const tokenId = await tokenOfOwnerByIndex("0x9E545E3C0baAB3E08CdfD552C960A1050f373042", i);
+        const tokenId = await tokenOfOwnerByIndex("0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9", i);
         console.log('i', i)
         setNfts((prev) => [...prev, tokenId]);
         setNfts((prev) => [...new Set(prev)])

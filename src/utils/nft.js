@@ -1,5 +1,5 @@
 import { ethers } from 'ethers';
-import ABI from '../contracts/MyNFT.json';
+import ABI from '../contracts/MyToken.json';
 import axios from 'axios';
 
 let provider = new ethers.BrowserProvider(window.ethereum)

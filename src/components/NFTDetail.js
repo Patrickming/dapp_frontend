@@ -24,7 +24,7 @@ const NFTDetail = () => {
 
   const handleBuyClick = async () => {
     if (allowance === 0) {
-      await approve("0x9E545E3C0baAB3E08CdfD552C960A1050f373042", "10000000000000000000000");
+      await approve("0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0", "10000000000000000000000");
     } else {
       await buy(tokenId);
     }
@@ -35,7 +35,7 @@ const NFTDetail = () => {
       const address = await getWalletAddress();
       const metadata = await getMetadata(tokenId);
       const order = await getOrder(tokenId);
-      const allowance = await getAllowance(address, "0x9E545E3C0baAB3E08CdfD552C960A1050f373042");
+      const allowance = await getAllowance(address, "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0");
       // console.log('address', address)
       // console.log('allowance', allowance);
   

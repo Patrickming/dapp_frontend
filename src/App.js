@@ -3,9 +3,11 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Navbar from './component/Navbar.js';
-import UploadSuccess from './component/UploadSuccess.js';
-import UploadImage from './component/UploadImage.js';
+import Navbar from './components/Navbar.js';
+import UploadSuccess from './components/UploadSuccess.js';
+import UploadImage from './components/UploadImage.js';
+import NFTGrid from './components/NFTGrid.js';
+import NFTDetail from './components/NFTDetail.js';
 
 
 function App() {
@@ -51,8 +53,10 @@ function App() {
         <Navbar onconnectWallet={getWalletAddress} walletAddress={walletAddress} />
 
         <Routes>
-          <Route path="/" exact element={<UploadImage address={walletAddress} />} />
+          <Route path="/create-nft" exact element={<UploadImage address={walletAddress}/>} />
           <Route path="/success" element={<UploadSuccess />} />
+          <Route path="/" element={<NFTGrid />} />
+          <Route path="/nft-detail/:tokenId" element={<NFTDetail />} />
         </Routes>
         <p>Your Address: {walletAddress}</p>
       </Router>
